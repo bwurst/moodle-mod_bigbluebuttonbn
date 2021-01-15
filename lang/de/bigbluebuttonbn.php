@@ -32,6 +32,7 @@ $string['config_participant_guestlink_description'] = 'Erlaube einem Moderator, 
 $string['config_custom_logo'] = 'Logo für die Seite des externen Einladungslinks.';
 $string['config_custom_logo_description'] = 'Sie können hier das Logo festlegen, das auf der Seite erscheint, die mit dem Einladungslink angezeigt wird. Standard ist das BigBlueButton-Logo.';
 
+$string['mod_form_field_moderatorapproval'] = 'Moderator muss externe Besucher einzeln freischalten.';
 $string['mod_form_block_guestlink'] = 'Einladungslink für externe Gäste';
 $string['mod_form_field_guestlinkenabled'] = 'Erzeuge einen Einladungslink für Gäste ohne Moodle-Zugang.';
 

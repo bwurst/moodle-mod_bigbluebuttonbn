@@ -359,6 +359,9 @@ function bigbluebuttonbn_bbb_view_create_meeting_data(&$bbbsession) {
     if ($bbbsession['lockonjoinconfigurable']) {
         $data['lockSettingsLockOnJoinConfigurable'] = 'true';
     }
+    if ($bbbsession['bigbluebuttonbn']->moderatorapproval) {
+        $data['guestPolicy'] = 'ASK_MODERATOR';
+    }
     return $data;
 }
 

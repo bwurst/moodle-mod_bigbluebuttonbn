@@ -378,6 +378,8 @@ class mod_bigbluebuttonbn_mod_form extends moodleform_mod {
                 $mform->addElement('header', 'guestlink', get_string('mod_form_block_guestlink', 'bigbluebuttonbn'));
                 $mform->addElement('advcheckbox', 'guestlinkenabled',
                         get_string('mod_form_field_guestlinkenabled', 'bigbluebuttonbn'), ' ');
+                $mform->addElement('advcheckbox', 'moderatorapproval',
+                        get_string('mod_form_field_moderatorapproval', 'bigbluebuttonbn'), ' ');
         }
     }
     /**

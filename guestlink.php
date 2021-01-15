@@ -77,6 +77,7 @@ if (!$valid) {
     $bbbsession['coursename'] = $course->fullname;
     $bbbsession['cm'] = $cm;
     $bbbsession['bigbluebuttonbn'] = $bigbluebuttonbn;
+    $bbbsession['guest'] = true;
 
     \mod_bigbluebuttonbn\locallib\bigbluebutton::view_bbbsession_set($context, $bbbsession);
     if (bigbluebuttonbn_is_meeting_running($bbbsession['meetingid'])) {

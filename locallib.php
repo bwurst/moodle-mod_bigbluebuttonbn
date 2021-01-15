@@ -109,7 +109,8 @@ function bigbluebuttonbn_get_join_url(
     $logouturl,
     $configtoken = null,
     $userid = null,
-    $clienttype = BIGBLUEBUTTON_CLIENTTYPE_FLASH
+    $clienttype = BIGBLUEBUTTON_CLIENTTYPE_FLASH,
+    $guest = false
 ) {
     $data = ['meetingID' => $meetingid,
         'fullName' => $username,
@@ -126,6 +127,7 @@ function bigbluebuttonbn_get_join_url(
     if (!is_null($userid)) {
         $data['userID'] = $userid;
     }
+    $data['guest'] = ($guest == 1 ? 'true' : 'false');
     return \mod_bigbluebuttonbn\locallib\bigbluebutton::action_url('join', $data);
 }
 
@@ -3671,13 +3673,18 @@ function bigbluebuttonbn_join_meeting($bbbsession, $bigbluebuttonbn, $origin = 0
         header('Location: '.$bbbsession['logoutURL']);
         return;
     }
+    // Mark guests (from external guestlink)
+    $guest = false;
+    if (isset($bbbsession['guest']) && $bbbsession['guest'] == true) {
+        $guest = true;
+    }
     // Build the URL.
     $password = $bbbsession['viewerPW'];
     if ($bbbsession['administrator'] || $bbbsession['moderator']) {
         $password = $bbbsession['modPW'];
     }
     $joinurl = bigbluebuttonbn_get_join_url($bbbsession['meetingid'], $bbbsession['username'],
-        $password, $bbbsession['logoutURL'], null, $bbbsession['userID'], $bbbsession['clienttype']);
+        $password, $bbbsession['logoutURL'], null, $bbbsession['userID'], $bbbsession['clienttype'], $guest);
     // Moodle event logger: Create an event for meeting joined.
     bigbluebuttonbn_event_log(\mod_bigbluebuttonbn\event\events::$events['meeting_join'], $bigbluebuttonbn);
     // Internal logger: Instert a record with the meeting created.

@@ -72,6 +72,7 @@ class config {
             'recordingstatus_enabled' => false,
             'meetingevents_enabled' => false,
             'participant_moderator_default' => '0',
+	    'participant_moderatorapproval' => '0',
             'participant_guestlink_enabled' => '1',
             'participant_guestlink_default' => '0',
             'custom_logo' => '',

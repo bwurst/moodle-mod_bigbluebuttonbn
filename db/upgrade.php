@@ -292,6 +292,10 @@ function xmldb_bigbluebuttonbn_upgrade($oldversion = 0) {
             'notnull' => null, 'sequence' => null, 'default' => null, 'previous' => null);
         xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'guestpass', $fielddefinition);
         upgrade_mod_savepoint(true, 2019101004, 'bigbluebuttonbn');
+	// Add field for moderatorapproval.
+	$fielddefinition = array('type' => XMLDB_TYPE_INTEGER, 'precision' => '1', 'unsigned' => null,
+            'notnull' => XMLDB_NOTNULL, 'sequence' => null, 'default' => 0, 'previous' => null);
+        xmldb_bigbluebuttonbn_add_change_field($dbman, 'bigbluebuttonbn', 'moderatorapproval', $fielddefinition);
     }
 
     return true;

@@ -346,6 +346,7 @@ $string['mod_form_field_participant_bbb_role_viewer'] = 'Viewer';
 $string['mod_form_field_instanceprofiles'] = 'Instance type';
 $string['mod_form_field_instanceprofiles_help'] = 'Select the type for this BigBlueButtonBN instance.';
 $string['mod_form_field_muteonstart'] = 'Mute on start';
+$string['mod_form_field_moderatorapproval'] = 'Moderator must approve guests';
 $string['mod_form_field_notification'] = 'Notify this change to users enrolled';
 $string['mod_form_field_notification_help'] = 'Send a notification to all users enrolled to let them know that this activity has been added or updated';
 $string['mod_form_field_notification_created_help'] = 'Send a notification to all users enrolled to let them know that this activity has been created';
