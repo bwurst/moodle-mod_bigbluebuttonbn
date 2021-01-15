@@ -246,6 +246,9 @@ function bigbluebuttonbn_add_instance($bigbluebuttonbn) {
  */
 function bigbluebuttonbn_update_instance($bigbluebuttonbn) {
     global $DB;
+    // Get the guestlinkid column in the bigbluebuttonbn table.
+    $bigbluebuttonbn->id = $bigbluebuttonbn->instance;
+    $bigbluebuttonbn->guestlinkid = (string)$DB->get_field('bigbluebuttonbn', 'guestlinkid', array('id' => $bigbluebuttonbn->id));
     // Excecute preprocess.
     bigbluebuttonbn_process_pre_save($bigbluebuttonbn);
     // Pre-set initial values.
@@ -700,7 +703,7 @@ function bigbluebuttonbn_process_pre_save_instance(&$bigbluebuttonbn) {
         $bigbluebuttonbn->viewerpass = bigbluebuttonbn_random_password(12, $bigbluebuttonbn->moderatorpass);
         $bigbluebuttonbn->guestlinkid = bigbluebuttonbn_random_password(12);
     }
-    if (!property_exists($bigbluebuttonbn, 'guestlinkid') ) {
+    if (!property_exists($bigbluebuttonbn, 'guestlinkid') || $bigbluebuttonbn->guestlinkid == '') {
         $bigbluebuttonbn->guestlinkid = bigbluebuttonbn_random_password(12);
     }
 }
