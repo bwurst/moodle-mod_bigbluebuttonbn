@@ -78,7 +78,7 @@ if (!$valid) {
     $bbbsession['cm'] = $cm;
     $bbbsession['bigbluebuttonbn'] = $bigbluebuttonbn;
 
-    bigbluebuttonbn_view_bbbsession_set($context, $bbbsession);
+    \mod_bigbluebuttonbn\locallib\bigbluebutton::view_bbbsession_set($context, $bbbsession);
     if (bigbluebuttonbn_is_meeting_running($bbbsession['meetingid'])) {
         $bbbsession['username'] = $guestname;
         // Since the meeting is already running, we just join the session.
